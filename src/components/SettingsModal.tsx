@@ -27,13 +27,15 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
           />
 
-          {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-card rounded-2xl shadow-2xl border border-border z-50 overflow-hidden"
-          >
+          {/* Modal Container - Centered with Flexbox */}
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 pointer-events-none overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-md bg-card rounded-2xl shadow-2xl border border-border overflow-hidden pointer-events-auto my-8"
+            >
             {/* Header */}
             <div className="bg-gradient-to-r from-primary to-accent p-6 text-white">
               <div className="flex items-center justify-between">
@@ -195,7 +197,8 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                 Done
               </button>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>
